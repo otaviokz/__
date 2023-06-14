@@ -1,0 +1,13 @@
+export DATABASE='okz'
+export DATABASE_USER='okz'
+export DATABASE_HOST='127.0.0.1'
+export DATABASE_PASSWORD='SOULpost'
+export DATABASE_PORT=5433
+
+
+
+export DATABASE='d4covbbjh0d4rj'
+export DATABASE_USER='tfvlzhhfhjywev'
+export DATABASE_HOST='ec2-3-232-103-50.compute-1.amazonaws.com'
+export DATABASE_PASSWORD='8415b6a21b8ede4d5f78643dbb5dc493f63ec8ef2b1927c47f6c937e25b9cee8'
+export DATABASE_PORT=5432
