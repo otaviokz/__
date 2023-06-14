@@ -1,7 +1,7 @@
 from postgres_db import db_connector
 
 def startup_database():
-    drop_tables()
+    # drop_tables()
     create_tables_if_neded()
 
 # Database structure =======================================================================================================================
