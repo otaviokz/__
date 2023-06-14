@@ -1,7 +1,7 @@
 from postgres_db import db_connector
 
 def startup_database():
-    # drop_tables()
+    drop_tables()
     create_tables_if_neded()
 
 # Database structure =======================================================================================================================
@@ -16,8 +16,7 @@ def create_list_table_if_needed():
     cursor = conn.cursor()
     sql = '''CREATE TABLE IF NOT EXISTS public.lists (
         name varchar(64) UNIQUE,
-        footNote varchar(128) NULL,
-        userid varchar(128)
+        footNote varchar(128) NULL
     );'''
     cursor.execute(sql)
     conn.commit()

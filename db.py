@@ -2,16 +2,15 @@ from postgres_db import db_connector
 import sys
 
 # Lists ====================================================================================================================================
-def fetch_lists(user):
+def fetch_lists():
     conn = db_connector()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM public.lists where userid='{}'".format(user))
+    cursor.execute("SELECT * FROM public.lists")
     result = []
     for row in cursor.fetchall():
         result.append( { 
             "name": row[0],
-            "footNote": row[1],
-            "userid": row[2]
+            "footNote": row[1]
         })
     conn.commit()
     cursor.close()
@@ -19,13 +18,13 @@ def fetch_lists(user):
     return result
 
 
-def add_list(name, footNote, userid):
+def add_list(name, footNote):
     if listAlreadyExists(name):
         return {"type": "failure", "message": "List {} already exists.".format(name)}
     else:
         conn = db_connector()
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO public.lists (name, footNote, userid) VALUES(%s, %s, %s)", (name, footNote, userid,))
+        cursor.execute("INSERT INTO public.lists (name, footNote) VALUES(%s, %s)", (name, footNote,))
         conn.commit()
         cursor.close()
         conn.close()

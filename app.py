@@ -60,9 +60,9 @@ def deleteItem():
 
 
 # Lists ====================================================================================================================================
-@app.get('/lists/<userid>')
-def showLists(userid):
-    return fetch_lists(userid)
+@app.get('/lists')
+def showLists():
+    return fetch_lists()
 
 # @app.post('/update/list')
 @app.post('/lists/update')
@@ -82,13 +82,12 @@ def addList():
     data = request.get_json()
     name = data["name"]
     footNote = data["footNote"]
-    userid = data["userid"]
 
     if not name:
         abort(500, "Field 'name' is mandatory.")
         # return jsonify({"type": "error", "message": "Field 'name' if mandatory."})
     else:
-        return jsonify(add_list(name, footNote, userid))
+        return jsonify(add_list(name, footNote))
 
 
 @app.delete('/lists')
