@@ -62,19 +62,19 @@ def deleteItem():
 # Lists ====================================================================================================================================
 @app.get('/lists')
 def showLists():
-    return fetch_lists()
+    return jsonify(fetch_lists())
 
 # @app.post('/update/list')
-@app.post('/lists/update')
-def updateList():
-    data = request.get_json()
-    oldName = data["oldName"]
-    newName = data["newName"]
-    newFootNote = data["footNote"]
-    if not newName or not oldName:
-         abort(500, "Fields 'oldName' and 'newName' are mandatory.")
-    else:
-        return jsonify(update_list(oldName, newName, newFootNote))
+# @app.post('/lists/update')
+# def updateList():
+#     data = request.get_json()
+#     oldName = data["oldName"]
+#     newName = data["newName"]
+#     newFootNote = data["footNote"]
+#     if not newName or not oldName:
+#          abort(500, "Fields 'oldName' and 'newName' are mandatory.")
+#     else:
+#         return jsonify(update_list(oldName, newName, newFootNote))
 
 
 @app.post('/lists')

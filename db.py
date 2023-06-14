@@ -42,15 +42,15 @@ def delete_list(name):
     conn.close()
     return { "type": "success", "message": "List {} and it's items deleted.".format(name) }
 
-def update_list(oldName, newName, newFootName):
-    conn = db_connector()
-    cursor = conn.cursor()
-    cursor.execute("UPDATE public.list_items SET list = '{}' WHERE list = '{}'".format(newName, oldName))
-    conn.commit()
-    cursor.execute("UPDATE public.lists SET name = '{}' AND footNote = {} WHERE name = '{}'".format(newName, newFootName, oldName))
-    conn.commit()
-    conn.close() 
-    return {"type": "success", "message": "List {} updated to".format(oldName, newName)}
+# def update_list(oldName, newName, newFootName):
+#     conn = db_connector()
+#     cursor = conn.cursor()
+#     cursor.execute("UPDATE public.list_items SET list = '{}' WHERE list = '{}'".format(newName, oldName))
+#     conn.commit()
+#     cursor.execute("UPDATE public.lists SET name = '{}' AND footNote = {} WHERE name = '{}'".format(newName, newFootName, oldName))
+#     conn.commit()
+#     conn.close() 
+#     return {"type": "success", "message": "List {} updated to".format(oldName, newName)}
 
 # Items ====================================================================================================================================
 def fetch_items_in_list(list):
